@@ -1,0 +1,51 @@
+# Avaliação local: `docker compose up --build` e abra http://localhost:8080
+# Os valores padrão abaixo são só para avaliação. Em produção, defina-os no .env.
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: leilao
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d leilao"]
+      interval: 3s
+      retries: 20
+
+  api:
+    build: ./backend
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgres://postgres:postgres@db:5432/leilao
+      JWT_SECRET: ${JWT_SECRET:-avaliacao-local-jwt}
+      PSEUDONYM_SECRET: ${PSEUDONYM_SECRET:-avaliacao-local-hmac}
+      RECEIPT_SECRET: ${RECEIPT_SECRET:-avaliacao-local-comprovante}
+      # Testemunha da trilha de auditoria, fora do banco, no volume persistente.
+      WITNESS_FILE: ${WITNESS_FILE:-/app/storage/audit-witness.jsonl}
+      AUDIT_PRIVATE_KEY_PEM: ${AUDIT_PRIVATE_KEY_PEM:-}
+      THESPORTSDB_BASE_URL: ${THESPORTSDB_BASE_URL:-https://www.thesportsdb.com/api/v1/json/123}
+      CATALOG_TTL_HOURS: ${CATALOG_TTL_HOURS:-24}
+      # Popula as contas demo (e lotes, quando a fonte de camisas responde) a cada subida.
+      SEED_ON_START: ${SEED_ON_START:-true}
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - storage:/app/storage
+    ports:
+      - "3000:3000"
+
+  nginx:
+    # SPA React (frontend/) servida como estático; /api, /socket.io e /images vão para a API.
+    build: ./frontend
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - api
+    ports:
+      - "8080:80"
+
+volumes:
+  pgdata:
+  storage:

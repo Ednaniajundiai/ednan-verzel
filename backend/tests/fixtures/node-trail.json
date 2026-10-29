@@ -1,0 +1,118 @@
+{
+  "private_key_pem": "-----BEGIN PRIVATE KEY-----\nMC4CAQAwBQYDK2VwBCIEIC9adzdCSQEdCpN2bNwOzQthfzFVgkxI2dJbIMzJ24bh\n-----END PRIVATE KEY-----\n",
+  "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA4ZdPa8vw3jrw/6A1R47qEB7ck4u3VG35d3Xlequie9c=\n-----END PUBLIC KEY-----\n",
+  "events": [
+    {
+      "event_type": "lot_opened",
+      "payload": {
+        "item_id": "9b0c3a52-6f1e-4d2b-8a3c-0d9e8f7a6b5c",
+        "item_external_id": "tsdb-equipment:4710",
+        "title": "Camisa São Paulo 2005 \"tricampeã\" ç",
+        "size": "M",
+        "condition": "nova_com_etiqueta",
+        "attributes": {
+          "team": "São Paulo",
+          "league": "Brazilian Serie A",
+          "season": "2005",
+          "kind": "1st"
+        },
+        "starting_price_cents": 15000,
+        "min_increment_cents": 1000,
+        "starts_at": "2026-10-28T20:00:00.123Z",
+        "ends_at": "2026-10-28T20:30:00.000Z"
+      }
+    },
+    {
+      "event_type": "bid_placed",
+      "payload": {
+        "bid_id": 41,
+        "bidder": "a1b2c3d4e5f60718",
+        "amount_cents": 15000,
+        "at": "2026-10-28T20:01:02.345Z"
+      }
+    },
+    {
+      "event_type": "bid_placed",
+      "payload": {
+        "bid_id": 42,
+        "bidder": "0f1e2d3c4b5a6978",
+        "amount_cents": 17000,
+        "at": "2026-10-28T20:28:59.999Z"
+      }
+    },
+    {
+      "event_type": "lot_extended",
+      "payload": {
+        "bid_id": 42,
+        "ends_at_before": "2026-10-28T20:30:00.000000Z",
+        "ends_at_after": "2026-10-28T20:30:59.999123Z",
+        "at": "2026-10-28T20:28:59.999Z"
+      }
+    },
+    {
+      "event_type": "lot_settled",
+      "payload": {
+        "winner": "0f1e2d3c4b5a6978",
+        "final_price_cents": 17000,
+        "bid_count": 2,
+        "at": "2026-10-28T20:31:00.500Z"
+      }
+    }
+  ],
+  "entries": [
+    {
+      "lot_id": "3aa9af76-a57e-4748-8c30-a1993559d0d5",
+      "seq": 1,
+      "event_type": "lot_opened",
+      "payload_canonical": "{\"attributes\":{\"kind\":\"1st\",\"league\":\"Brazilian Serie A\",\"season\":\"2005\",\"team\":\"São Paulo\"},\"condition\":\"nova_com_etiqueta\",\"ends_at\":\"2026-10-28T20:30:00.000Z\",\"item_external_id\":\"tsdb-equipment:4710\",\"item_id\":\"9b0c3a52-6f1e-4d2b-8a3c-0d9e8f7a6b5c\",\"min_increment_cents\":1000,\"size\":\"M\",\"starting_price_cents\":15000,\"starts_at\":\"2026-10-28T20:00:00.123Z\",\"title\":\"Camisa São Paulo 2005 \\\"tricampeã\\\" ç\"}",
+      "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "e8853ce8181c9d31758be0cc372c1a925bf2ff1ad71e7755d89c8bce1dab2b48",
+      "signature": "5+s+Rg0WVovmAf4iISSDWpMccF9J+0rFhB2J8YtRjLFwlfByjuAidvxhBSjI+3n5kzBtg9/rqCI3efx8zjmJCA=="
+    },
+    {
+      "lot_id": "3aa9af76-a57e-4748-8c30-a1993559d0d5",
+      "seq": 2,
+      "event_type": "bid_placed",
+      "payload_canonical": "{\"amount_cents\":15000,\"at\":\"2026-10-28T20:01:02.345Z\",\"bid_id\":41,\"bidder\":\"a1b2c3d4e5f60718\"}",
+      "prev_hash": "e8853ce8181c9d31758be0cc372c1a925bf2ff1ad71e7755d89c8bce1dab2b48",
+      "hash": "b998a1efffe0869f047f0106e50a9ac224d55a5c577ed5669f2cf7e8f8c813c5",
+      "signature": "gejQCWJhkCHxdz4fOKJbkToRFXEwmX7j1BgmgKZXvFeQMp5QcNzZU2XHyhlQ6fBV0fUW5g4DILaKNXhNqP3FAw=="
+    },
+    {
+      "lot_id": "3aa9af76-a57e-4748-8c30-a1993559d0d5",
+      "seq": 3,
+      "event_type": "bid_placed",
+      "payload_canonical": "{\"amount_cents\":17000,\"at\":\"2026-10-28T20:28:59.999Z\",\"bid_id\":42,\"bidder\":\"0f1e2d3c4b5a6978\"}",
+      "prev_hash": "b998a1efffe0869f047f0106e50a9ac224d55a5c577ed5669f2cf7e8f8c813c5",
+      "hash": "d501c2070e2e86b39b3054b94d9ab70dbee30d9517dba2cbb2526905f5daa2d7",
+      "signature": "0ULrhQj/NiqWHHD1ph1CF76NCPNDBThJiiy0yI0eylzbitbwRHwBIU12APoZ4CblCRJ2NqUWs0+Y3Mp6Nnq3Dg=="
+    },
+    {
+      "lot_id": "3aa9af76-a57e-4748-8c30-a1993559d0d5",
+      "seq": 4,
+      "event_type": "lot_extended",
+      "payload_canonical": "{\"at\":\"2026-10-28T20:28:59.999Z\",\"bid_id\":42,\"ends_at_after\":\"2026-10-28T20:30:59.999123Z\",\"ends_at_before\":\"2026-10-28T20:30:00.000000Z\"}",
+      "prev_hash": "d501c2070e2e86b39b3054b94d9ab70dbee30d9517dba2cbb2526905f5daa2d7",
+      "hash": "7c61e6b83e67af78ab23945970b7636281dee894772801c09afc6b41dae3c899",
+      "signature": "Q+IjnzoFXz/W36lXCABQkW0Yy4c0b+CAyJuAdU2IoYB+pz8qjVmF3H8ChF9GuvPIIbMYx0xva98LiIdNayUtCA=="
+    },
+    {
+      "lot_id": "3aa9af76-a57e-4748-8c30-a1993559d0d5",
+      "seq": 5,
+      "event_type": "lot_settled",
+      "payload_canonical": "{\"at\":\"2026-10-28T20:31:00.500Z\",\"bid_count\":2,\"final_price_cents\":17000,\"winner\":\"0f1e2d3c4b5a6978\"}",
+      "prev_hash": "7c61e6b83e67af78ab23945970b7636281dee894772801c09afc6b41dae3c899",
+      "hash": "f7ed57d996768df89ddd97050b7b5796fb1e780e46e8a74f7e43a3dbced053cf",
+      "signature": "5zcWs6sn5eNMnR0obYHf4dByT8Y8V3cf7BoAVWkXaSH/eR4TsuINrtCmJTJ2zEtal7D8oycZ/YWnbyYtKamVAA=="
+    }
+  ],
+  "witness_line": "{\"lot_id\":\"3aa9af76-a57e-4748-8c30-a1993559d0d5\",\"seq\":5,\"head_hash\":\"f7ed57d996768df89ddd97050b7b5796fb1e780e46e8a74f7e43a3dbced053cf\",\"at\":\"2026-10-28T20:31:00.512Z\",\"sig\":\"QfmRXClLhET6th9GhIN8Itm9XwYDDFujW0YDL+aMsdhVCiFkjbW8oxDoa3tGttDayozDyurTUQrXDoCHJzVIAg==\"}",
+  "password": {
+    "plain": "demo12345",
+    "hash": "scrypt$NfDX9jOVvQ7pm0BXv6HTlw==$ES6QYfdM/xurUdGd+fUUPdIXxpCUSK29QL6d//q1gviy56gcIZoUd3c8dQPIoablBzxLBp4CQkUqZi/2eHaOKQ=="
+  },
+  "jwt": {
+    "secret": "segredo-jwt",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYmlkZGVyIiwiaWF0IjoxNzkzMjI4NDY1LCJleHAiOjQ5NDg5ODg0NjUsInN1YiI6IjdkMWYwZjBlLTFiMmMtNGQzZS05ZjQwLTVhNmI3YzhkOWUwZiJ9.VJSlzGU7o9hsiGHgqCmzEpsvMOnbGOzdc36idXqYho8"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "equipment": [
+    {
+      "idEquipment": "5001",
+      "idTeam": "134465",
+      "date": "2021-01-10",
+      "strSeason": "2021",
+      "strEquipment": "",
+      "strType": "1st",
+      "strUsername": "fan02"
+    },
+    {
+      "idEquipment": "5002",
+      "idTeam": "134465",
+      "date": "2021-01-10",
+      "strSeason": "2021",
+      "strEquipment": "https://www.thesportsdb.com/images/media/team/equipment/palmeiras-2021-2nd.png",
+      "strType": "2nd",
+      "strUsername": "fan02"
+    }
+  ]
+}

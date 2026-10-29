@@ -1,0 +1,814 @@
+[
+  {
+    "schema": "deposit",
+    "input": {},
+    "ok": false,
+    "issues": {
+      "amount_cents": [
+        "O depósito deve ser entre R$ 1,00 e R$ 100.000,00, com até duas casas decimais"
+      ]
+    }
+  },
+  {
+    "schema": "deposit",
+    "input": {
+      "amount_cents": "100"
+    },
+    "ok": false,
+    "issues": {
+      "amount_cents": [
+        "O depósito deve ser entre R$ 1,00 e R$ 100.000,00, com até duas casas decimais"
+      ]
+    }
+  },
+  {
+    "schema": "deposit",
+    "input": {
+      "amount_cents": 10.5
+    },
+    "ok": false,
+    "issues": {
+      "amount_cents": [
+        "O depósito deve ser entre R$ 1,00 e R$ 100.000,00, com até duas casas decimais"
+      ]
+    }
+  },
+  {
+    "schema": "deposit",
+    "input": {
+      "amount_cents": 50.5
+    },
+    "ok": false,
+    "issues": {
+      "amount_cents": [
+        "O depósito deve ser entre R$ 1,00 e R$ 100.000,00, com até duas casas decimais"
+      ]
+    }
+  },
+  {
+    "schema": "deposit",
+    "input": {
+      "amount_cents": 99
+    },
+    "ok": false,
+    "issues": {
+      "amount_cents": [
+        "O depósito deve ser entre R$ 1,00 e R$ 100.000,00, com até duas casas decimais"
+      ]
+    }
+  },
+  {
+    "schema": "deposit",
+    "input": {
+      "amount_cents": 100
+    },
+    "ok": true,
+    "output": {
+      "amount_cents": 100
+    }
+  },
+  {
+    "schema": "deposit",
+    "input": {
+      "amount_cents": 100
+    },
+    "ok": true,
+    "output": {
+      "amount_cents": 100
+    }
+  },
+  {
+    "schema": "deposit",
+    "input": {
+      "amount_cents": 1000000000
+    },
+    "ok": false,
+    "issues": {
+      "amount_cents": [
+        "O depósito deve ser entre R$ 1,00 e R$ 100.000,00, com até duas casas decimais"
+      ]
+    }
+  },
+  {
+    "schema": "deposit",
+    "input": {
+      "amount_cents": 10000000
+    },
+    "ok": true,
+    "output": {
+      "amount_cents": 10000000
+    }
+  },
+  {
+    "schema": "deposit",
+    "input": {
+      "amount_cents": 10000001
+    },
+    "ok": false,
+    "issues": {
+      "amount_cents": [
+        "O depósito deve ser entre R$ 1,00 e R$ 100.000,00, com até duas casas decimais"
+      ]
+    }
+  },
+  {
+    "schema": "deposit",
+    "input": {
+      "amount_cents": null
+    },
+    "ok": false,
+    "issues": {
+      "amount_cents": [
+        "O depósito deve ser entre R$ 1,00 e R$ 100.000,00, com até duas casas decimais"
+      ]
+    }
+  },
+  {
+    "schema": "deposit",
+    "input": {
+      "amount_cents": true
+    },
+    "ok": false,
+    "issues": {
+      "amount_cents": [
+        "O depósito deve ser entre R$ 1,00 e R$ 100.000,00, com até duas casas decimais"
+      ]
+    }
+  },
+  {
+    "schema": "deposit",
+    "input": {
+      "amount_cents": -500
+    },
+    "ok": false,
+    "issues": {
+      "amount_cents": [
+        "O depósito deve ser entre R$ 1,00 e R$ 100.000,00, com até duas casas decimais"
+      ]
+    }
+  },
+  {
+    "schema": "deposit",
+    "input": {
+      "amount_cents": 0
+    },
+    "ok": false,
+    "issues": {
+      "amount_cents": [
+        "O depósito deve ser entre R$ 1,00 e R$ 100.000,00, com até duas casas decimais"
+      ]
+    }
+  },
+  {
+    "schema": "deposit",
+    "input": {
+      "amount_cents": 100000000000000000000
+    },
+    "ok": false,
+    "issues": {
+      "amount_cents": [
+        "O depósito deve ser entre R$ 1,00 e R$ 100.000,00, com até duas casas decimais",
+        "O depósito deve ser entre R$ 1,00 e R$ 100.000,00, com até duas casas decimais"
+      ]
+    }
+  },
+  {
+    "schema": "bid",
+    "input": {},
+    "ok": false,
+    "issues": {
+      "amount_cents": [
+        "Invalid input: expected number, received undefined"
+      ]
+    }
+  },
+  {
+    "schema": "bid",
+    "input": {
+      "amount_cents": 0
+    },
+    "ok": false,
+    "issues": {
+      "amount_cents": [
+        "Too small: expected number to be >0"
+      ]
+    }
+  },
+  {
+    "schema": "bid",
+    "input": {
+      "amount_cents": 0
+    },
+    "ok": false,
+    "issues": {
+      "amount_cents": [
+        "Too small: expected number to be >0"
+      ]
+    }
+  },
+  {
+    "schema": "bid",
+    "input": {
+      "amount_cents": -1.5
+    },
+    "ok": false,
+    "issues": {
+      "amount_cents": [
+        "Invalid input: expected int, received number"
+      ]
+    }
+  },
+  {
+    "schema": "bid",
+    "input": {
+      "amount_cents": 1000000000000
+    },
+    "ok": false,
+    "issues": {
+      "amount_cents": [
+        "Too big: expected number to be <=100000000000"
+      ]
+    }
+  },
+  {
+    "schema": "bid",
+    "input": {
+      "amount_cents": "5"
+    },
+    "ok": false,
+    "issues": {
+      "amount_cents": [
+        "Invalid input: expected number, received string"
+      ]
+    }
+  },
+  {
+    "schema": "bid",
+    "input": {
+      "amount_cents": 100000000000000000000
+    },
+    "ok": false,
+    "issues": {
+      "amount_cents": [
+        "Too big: expected int to be <=9007199254740991",
+        "Too big: expected number to be <=100000000000"
+      ]
+    }
+  },
+  {
+    "schema": "bid",
+    "input": {
+      "amount_cents": -100000000000000000000
+    },
+    "ok": false,
+    "issues": {
+      "amount_cents": [
+        "Too small: expected int to be >=-9007199254740991",
+        "Too small: expected number to be >0"
+      ]
+    }
+  },
+  {
+    "schema": "bid",
+    "input": {
+      "amount_cents": 9007199254740992
+    },
+    "ok": false,
+    "issues": {
+      "amount_cents": [
+        "Too big: expected int to be <=9007199254740991",
+        "Too big: expected number to be <=100000000000"
+      ]
+    }
+  },
+  {
+    "schema": "bid",
+    "input": {
+      "amount_cents": 100000000000
+    },
+    "ok": true,
+    "output": {
+      "amount_cents": 100000000000
+    }
+  },
+  {
+    "schema": "bid",
+    "input": {
+      "amount_cents": 100000000001
+    },
+    "ok": false,
+    "issues": {
+      "amount_cents": [
+        "Too big: expected number to be <=100000000000"
+      ]
+    }
+  },
+  {
+    "schema": "bid",
+    "input": {
+      "amount_cents": []
+    },
+    "ok": false,
+    "issues": {
+      "amount_cents": [
+        "Invalid input: expected number, received array"
+      ]
+    }
+  },
+  {
+    "schema": "bid",
+    "input": {
+      "amount_cents": {}
+    },
+    "ok": false,
+    "issues": {
+      "amount_cents": [
+        "Invalid input: expected number, received object"
+      ]
+    }
+  },
+  {
+    "schema": "idempotencyKey",
+    "input": "__undefined__",
+    "ok": true,
+    "output": "__undefined__"
+  },
+  {
+    "schema": "idempotencyKey",
+    "input": "",
+    "ok": false,
+    "issues": {}
+  },
+  {
+    "schema": "idempotencyKey",
+    "input": "k",
+    "ok": true,
+    "output": "k"
+  },
+  {
+    "schema": "idempotencyKey",
+    "input": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "ok": true,
+    "output": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  },
+  {
+    "schema": "idempotencyKey",
+    "input": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "ok": false,
+    "issues": {}
+  },
+  {
+    "schema": "catalogQuery",
+    "input": {},
+    "ok": false,
+    "issues": {
+      "q": [
+        "Invalid input: expected string, received undefined"
+      ]
+    }
+  },
+  {
+    "schema": "catalogQuery",
+    "input": {
+      "q": "  "
+    },
+    "ok": false,
+    "issues": {
+      "q": [
+        "Digite o nome de um time"
+      ]
+    }
+  },
+  {
+    "schema": "catalogQuery",
+    "input": {
+      "q": " Fla "
+    },
+    "ok": true,
+    "output": {
+      "q": "Fla"
+    }
+  },
+  {
+    "schema": "catalogQuery",
+    "input": {
+      "q": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    "ok": false,
+    "issues": {
+      "q": [
+        "Use até 60 caracteres"
+      ]
+    }
+  },
+  {
+    "schema": "catalogQuery",
+    "input": {
+      "q": [
+        "a",
+        "b"
+      ]
+    },
+    "ok": false,
+    "issues": {
+      "q": [
+        "Invalid input: expected string, received array"
+      ]
+    }
+  },
+  {
+    "schema": "catalogQuery",
+    "input": {
+      "q": ""
+    },
+    "ok": false,
+    "issues": {
+      "q": [
+        "Digite o nome de um time"
+      ]
+    }
+  },
+  {
+    "schema": "teamId",
+    "input": "abc",
+    "ok": false,
+    "issues": {}
+  },
+  {
+    "schema": "teamId",
+    "input": "134296",
+    "ok": true,
+    "output": "134296"
+  },
+  {
+    "schema": "teamId",
+    "input": "1234567890123",
+    "ok": false,
+    "issues": {}
+  },
+  {
+    "schema": "teamId",
+    "input": "١٢٣",
+    "ok": false,
+    "issues": {}
+  },
+  {
+    "schema": "uuid",
+    "input": "nao-e-uuid",
+    "ok": false,
+    "issues": {}
+  },
+  {
+    "schema": "uuid",
+    "input": "3AA9AF76-A57E-4748-8C30-A1993559D0D5",
+    "ok": true,
+    "output": "3AA9AF76-A57E-4748-8C30-A1993559D0D5"
+  },
+  {
+    "schema": "uuid",
+    "input": "3aa9af76-a57e-0748-8c30-a1993559d0d5",
+    "ok": false,
+    "issues": {}
+  },
+  {
+    "schema": "uuid",
+    "input": "00000000-0000-0000-0000-000000000000",
+    "ok": true,
+    "output": "00000000-0000-0000-0000-000000000000"
+  },
+  {
+    "schema": "uuid",
+    "input": "00000000-0000-4000-8000-000000000000",
+    "ok": true,
+    "output": "00000000-0000-4000-8000-000000000000"
+  },
+  {
+    "schema": "lot",
+    "input": "__undefined__",
+    "ok": false,
+    "issues": {}
+  },
+  {
+    "schema": "lot",
+    "input": {},
+    "ok": false,
+    "issues": {
+      "item_id": [
+        "Escolha uma camisa"
+      ],
+      "title": [
+        "Informe o título"
+      ],
+      "size": [
+        "Escolha um tamanho"
+      ],
+      "condition": [
+        "Escolha o estado de conservação"
+      ],
+      "ends_at": [
+        "Data e hora inválidas"
+      ],
+      "starting_price_cents": [
+        "Informe um valor em centavos"
+      ],
+      "min_increment_cents": [
+        "Informe um valor em centavos"
+      ]
+    }
+  },
+  {
+    "schema": "lot",
+    "input": {
+      "item_id": "3aa9af76-a57e-4748-8c30-a1993559d0d5",
+      "title": "Camisa",
+      "size": "M",
+      "condition": "nova",
+      "ends_at": "2026-10-28T20:00:00.000Z",
+      "starting_price_cents": 100,
+      "min_increment_cents": 10
+    },
+    "ok": true,
+    "output": {
+      "item_id": "3aa9af76-a57e-4748-8c30-a1993559d0d5",
+      "title": "Camisa",
+      "size": "M",
+      "condition": "nova",
+      "ends_at": "2026-10-28T20:00:00.000Z",
+      "starting_price_cents": 100,
+      "min_increment_cents": 10
+    }
+  },
+  {
+    "schema": "lot",
+    "input": {
+      "item_id": "x",
+      "title": 5,
+      "size": "XXL",
+      "condition": "rasgada",
+      "starts_at": "ontem",
+      "ends_at": "2026-10-28T20:00:00",
+      "starting_price_cents": 0,
+      "min_increment_cents": 1.5
+    },
+    "ok": false,
+    "issues": {
+      "item_id": [
+        "Escolha uma camisa"
+      ],
+      "title": [
+        "Informe o título"
+      ],
+      "size": [
+        "Escolha um tamanho"
+      ],
+      "condition": [
+        "Escolha o estado de conservação"
+      ],
+      "starts_at": [
+        "Data e hora inválidas"
+      ],
+      "ends_at": [
+        "Data e hora inválidas"
+      ],
+      "starting_price_cents": [
+        "Deve ser maior que zero"
+      ],
+      "min_increment_cents": [
+        "Use centavos inteiros"
+      ]
+    }
+  },
+  {
+    "schema": "lot",
+    "input": {
+      "item_id": "3aa9af76-a57e-4748-8c30-a1993559d0d5",
+      "title": " t ",
+      "size": "M",
+      "condition": "nova",
+      "ends_at": "2026-10-28T20:00:00.123456789+03:00",
+      "starting_price_cents": 100,
+      "min_increment_cents": 10,
+      "starts_at": null
+    },
+    "ok": false,
+    "issues": {
+      "starts_at": [
+        "Data e hora inválidas"
+      ]
+    }
+  },
+  {
+    "schema": "lot",
+    "input": {
+      "item_id": "3aa9af76-a57e-4748-8c30-a1993559d0d5",
+      "title": "Camisa",
+      "size": "M",
+      "condition": "nova",
+      "ends_at": "2026-10-28T20:00Z",
+      "starting_price_cents": 100,
+      "min_increment_cents": 10
+    },
+    "ok": false,
+    "issues": {
+      "ends_at": [
+        "Data e hora inválidas"
+      ]
+    }
+  },
+  {
+    "schema": "lot",
+    "input": {
+      "item_id": "3aa9af76-a57e-4748-8c30-a1993559d0d5",
+      "title": "Camisa",
+      "size": "M",
+      "condition": "nova",
+      "ends_at": "2026-02-29T20:00:00Z",
+      "starting_price_cents": 100,
+      "min_increment_cents": 10
+    },
+    "ok": false,
+    "issues": {
+      "ends_at": [
+        "Data e hora inválidas"
+      ]
+    }
+  },
+  {
+    "schema": "lot",
+    "input": {
+      "item_id": "3aa9af76-a57e-4748-8c30-a1993559d0d5",
+      "title": "Camisa",
+      "size": "M",
+      "condition": "nova",
+      "ends_at": "2028-02-29T20:00:00Z",
+      "starting_price_cents": 100,
+      "min_increment_cents": 10
+    },
+    "ok": true,
+    "output": {
+      "item_id": "3aa9af76-a57e-4748-8c30-a1993559d0d5",
+      "title": "Camisa",
+      "size": "M",
+      "condition": "nova",
+      "ends_at": "2028-02-29T20:00:00Z",
+      "starting_price_cents": 100,
+      "min_increment_cents": 10
+    }
+  },
+  {
+    "schema": "lot",
+    "input": {
+      "item_id": "3aa9af76-a57e-4748-8c30-a1993559d0d5",
+      "title": "Camisa",
+      "size": "M",
+      "condition": "nova",
+      "ends_at": "2026-10-28T24:00:00Z",
+      "starting_price_cents": 100,
+      "min_increment_cents": 10
+    },
+    "ok": false,
+    "issues": {
+      "ends_at": [
+        "Data e hora inválidas"
+      ]
+    }
+  },
+  {
+    "schema": "lot",
+    "input": {
+      "item_id": "3aa9af76-a57e-4748-8c30-a1993559d0d5",
+      "title": "Camisa",
+      "size": "M",
+      "condition": "nova",
+      "ends_at": "2026-10-28T20:00:00-03:00",
+      "starting_price_cents": 100,
+      "min_increment_cents": 10,
+      "starts_at": "2026-10-28T19:00:00.5Z"
+    },
+    "ok": true,
+    "output": {
+      "item_id": "3aa9af76-a57e-4748-8c30-a1993559d0d5",
+      "title": "Camisa",
+      "size": "M",
+      "condition": "nova",
+      "starts_at": "2026-10-28T19:00:00.5Z",
+      "ends_at": "2026-10-28T20:00:00-03:00",
+      "starting_price_cents": 100,
+      "min_increment_cents": 10
+    }
+  },
+  {
+    "schema": "lot",
+    "input": {
+      "item_id": "3aa9af76-a57e-4748-8c30-a1993559d0d5",
+      "title": "Camisa",
+      "size": "M",
+      "condition": "nova",
+      "ends_at": "2026-10-28t20:00:00z",
+      "starting_price_cents": 100,
+      "min_increment_cents": 10
+    },
+    "ok": false,
+    "issues": {
+      "ends_at": [
+        "Data e hora inválidas"
+      ]
+    }
+  },
+  {
+    "schema": "lot",
+    "input": {
+      "item_id": "3aa9af76-a57e-4748-8c30-a1993559d0d5",
+      "title": "Camisa",
+      "size": "M",
+      "condition": "nova",
+      "ends_at": "2026-10-28T20:00:00+0300",
+      "starting_price_cents": 100,
+      "min_increment_cents": 10
+    },
+    "ok": false,
+    "issues": {
+      "ends_at": [
+        "Data e hora inválidas"
+      ]
+    }
+  },
+  {
+    "schema": "lot",
+    "input": {
+      "item_id": "3aa9af76-a57e-4748-8c30-a1993559d0d5",
+      "title": "   ",
+      "size": "XXL",
+      "condition": "rasgada",
+      "ends_at": "2026-10-28T20:00:00.000Z",
+      "starting_price_cents": 0,
+      "min_increment_cents": 0
+    },
+    "ok": false,
+    "issues": {
+      "title": [
+        "Informe o título"
+      ],
+      "size": [
+        "Escolha um tamanho"
+      ],
+      "condition": [
+        "Escolha o estado de conservação"
+      ],
+      "starting_price_cents": [
+        "Deve ser maior que zero"
+      ],
+      "min_increment_cents": [
+        "Deve ser maior que zero"
+      ]
+    }
+  },
+  {
+    "schema": "lot",
+    "input": {
+      "item_id": "3aa9af76-a57e-4748-8c30-a1993559d0d5",
+      "title": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "size": "M",
+      "condition": "nova",
+      "ends_at": "2026-10-28T20:00:00.000Z",
+      "starting_price_cents": 1000000000000,
+      "min_increment_cents": "10"
+    },
+    "ok": false,
+    "issues": {
+      "title": [
+        "Use até 120 caracteres"
+      ],
+      "starting_price_cents": [
+        "Informe um valor em centavos"
+      ],
+      "min_increment_cents": [
+        "Informe um valor em centavos"
+      ]
+    }
+  },
+  {
+    "schema": "lot",
+    "input": {
+      "item_id": 7,
+      "title": "Camisa",
+      "size": null,
+      "condition": 5,
+      "ends_at": "2026-10-28T20:00:00.000Z",
+      "starting_price_cents": 100,
+      "min_increment_cents": 10
+    },
+    "ok": false,
+    "issues": {
+      "item_id": [
+        "Escolha uma camisa"
+      ],
+      "size": [
+        "Escolha um tamanho"
+      ],
+      "condition": [
+        "Escolha o estado de conservação"
+      ]
+    }
+  }
+]

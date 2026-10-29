@@ -1,0 +1,11 @@
+node_modules/
+dist/
+storage/
+.env
+*.log
+.claude/
+.venv/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/

@@ -1,0 +1,1 @@
+{"teams": [ {"idTeam": "1", "strTeam": 

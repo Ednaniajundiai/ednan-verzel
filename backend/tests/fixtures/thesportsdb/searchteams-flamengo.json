@@ -1,0 +1,20 @@
+{
+  "teams": [
+    {
+      "idTeam": "134296",
+      "strTeam": "Flamengo",
+      "strTeamAlternate": "CR Flamengo",
+      "strLeague": "Brazilian Serie A",
+      "strCountry": "Brazil",
+      "strBadge": "https://r2.thesportsdb.com/images/media/team/badge/syptwx1473538074.png"
+    },
+    {
+      "idTeam": "140112",
+      "strTeam": "Flamengo RJ U20",
+      "strTeamAlternate": "",
+      "strLeague": "Brazilian U20",
+      "strCountry": "Brazil",
+      "strBadge": null
+    }
+  ]
+}

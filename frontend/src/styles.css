@@ -1,0 +1,690 @@
+/*
+ * Cores só em variáveis (D-17 da 002): o tema escuro da 004 redefine estes
+ * valores sem tocar nos componentes.
+ */
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-alt: #eef1f5;
+  --text: #1b1f24;
+  --muted: #5b6470;
+  --border: #d6dbe1;
+  --primary: #1f5fbf;
+  --primary-text: #ffffff;
+  --primary-soft: #e3ecfa;
+  --danger: #b42318;
+  --danger-soft: #fdecea;
+  --success: #146c2e;
+  --success-soft: #e6f4ea;
+  --warning: #8a5a00;
+  --warning-soft: #fff4d6;
+  --focus: #1f5fbf;
+  --radius: 8px;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.06), 0 2px 8px rgb(0 0 0 / 0.04);
+  color-scheme: light;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* Tema escuro (spec 004, FR-028): só os valores mudam. */
+[data-theme='dark'] {
+  --bg: #0f1419;
+  --surface: #171d24;
+  --surface-alt: #222a33;
+  --text: #e6e9ed;
+  --muted: #a3adb8;
+  --border: #33404d;
+  --primary: #79b0ff;
+  --primary-text: #0b1220;
+  --primary-soft: #1c2b44;
+  --danger: #ff8f85;
+  --danger-soft: #3a1d1d;
+  --success: #6fdc8c;
+  --success-soft: #16301f;
+  --warning: #ffd27a;
+  --warning-soft: #3a2e12;
+  --focus: #79b0ff;
+  --shadow: none;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: var(--primary);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+  padding: 12px 24px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav,
+.session {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.session {
+  margin-left: auto;
+}
+
+.nav a,
+.session a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav a.active,
+.session a.active {
+  color: var(--primary);
+}
+
+.content {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.narrow {
+  max-width: 420px;
+  margin: 24px auto;
+}
+
+form.stack,
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1 1 180px;
+}
+
+.stack > .field {
+  /* Em coluna, o flex-basis viraria altura: o campo fica do tamanho do conteúdo. */
+  flex: none;
+}
+
+.field label,
+.field legend {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+input,
+select,
+button,
+textarea {
+  font: inherit;
+}
+
+input,
+select,
+textarea {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+input[aria-invalid='true'],
+select[aria-invalid='true'] {
+  border-color: var(--danger);
+}
+
+.field-error {
+  color: var(--danger);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  padding: 8px 14px;
+}
+
+button.primary {
+  background: var(--primary);
+  color: var(--primary-text);
+  border-color: var(--primary);
+  font-weight: 600;
+}
+
+button.danger {
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+button.link {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.choice {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.choice label {
+  flex: 1 1 160px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  font-weight: 500;
+}
+
+.notice {
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.notice.warning {
+  background: var(--warning-soft);
+  color: var(--warning);
+  border-color: var(--warning);
+}
+
+.notice.error {
+  background: var(--danger-soft);
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+.notice.success {
+  background: var(--success-soft);
+  color: var(--success);
+  border-color: var(--success);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.jersey {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  padding: 12px;
+}
+
+.jersey img,
+.thumb {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  background: var(--surface-alt);
+  border-radius: 6px;
+}
+
+.jersey.selected {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-soft);
+}
+
+.placeholder-img {
+  width: 100%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  background: var(--surface-alt);
+  color: var(--muted);
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--surface-alt);
+  color: var(--muted);
+}
+
+.badge.success {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.badge.danger {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.badge.primary {
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.tabs button {
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  background: none;
+  color: var(--muted);
+}
+
+.tabs button[aria-selected='true'] {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+  font-weight: 600;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+th {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat strong {
+  font-size: 1.6rem;
+}
+
+.page-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.page-head h1 {
+  margin: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    padding: 12px 16px;
+  }
+  .session {
+    margin-left: 0;
+  }
+}
+
+/* ---------------------------------------------------------------- vitrine e sala (spec 003) */
+
+.lot-card h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.lot-card p {
+  margin: 0;
+}
+
+.countdown {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.sala {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sala-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.sala h1 {
+  margin: 8px 0 4px;
+}
+
+.sala-image {
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+  background: var(--surface-alt);
+  border-radius: var(--radius);
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+}
+
+.price strong {
+  font-size: 2rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.card p {
+  margin: 0;
+}
+
+.lead-indicator {
+  position: sticky;
+  top: 8px;
+  z-index: 1;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  font-weight: 700;
+  font-size: 1.15rem;
+  text-align: center;
+}
+
+.lead-indicator.winning {
+  background: var(--success-soft);
+  color: var(--success);
+  border: 2px solid var(--success);
+}
+
+.lead-indicator.outbid {
+  background: var(--danger-soft);
+  color: var(--danger);
+  border: 2px solid var(--danger);
+}
+
+.standing {
+  font-weight: 600;
+}
+
+.bid-history {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.bid-history li {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-variant-numeric: tabular-nums;
+}
+
+.bid-history li.mine {
+  background: var(--primary-soft);
+}
+
+.badge.phase-live {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.badge.phase-scheduled {
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.badge.phase-cancelled {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+@media (max-width: 800px) {
+  .sala-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------------------------------------------------------- área do licitante e auditoria (spec 004) */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.plain-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.plain-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.participation {
+  align-items: center;
+}
+
+.verdict {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 18px;
+  border-radius: var(--radius);
+  border: 2px solid;
+}
+
+.verdict.intact {
+  background: var(--success-soft);
+  color: var(--success);
+  border-color: var(--success);
+}
+
+.verdict.tampered {
+  background: var(--danger-soft);
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+.verdict-title {
+  font-size: 1.3rem;
+}
+
+.audit-head {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.audit-head .thumb {
+  width: 96px;
+}
+
+.audit-head h1 {
+  margin: 0;
+}
+
+.audit-events {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.audit-events li {
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.audit-events li.broken {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.audit-events .seq {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.audit-events .hash {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.how p,
+.how ul {
+  margin: 0;
+}
+
+.receipt {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.receipt h1 {
+  margin: 0;
+}
+
+.receipt-fields {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 8px 16px;
+  margin: 0;
+}
+
+.receipt-fields dt {
+  color: var(--muted);
+}
+
+.receipt-fields dd {
+  margin: 0;
+}
+
+.theme-toggle {
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+
+@media (max-width: 640px) {
+  .audit-events li {
+    grid-template-columns: 36px 1fr;
+  }
+  .audit-events .hash {
+    display: none;
+  }
+}

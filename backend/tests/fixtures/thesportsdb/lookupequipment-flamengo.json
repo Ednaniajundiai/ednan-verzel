@@ -1,0 +1,22 @@
+{
+  "equipment": [
+    {
+      "idEquipment": "4710",
+      "idTeam": "134296",
+      "date": "2019-05-11",
+      "strSeason": "2019-2020",
+      "strEquipment": "https://www.thesportsdb.com/images/media/team/equipment/flamengo-2019-1st.png",
+      "strType": "1st",
+      "strUsername": "fan01"
+    },
+    {
+      "idEquipment": "4711",
+      "idTeam": "134296",
+      "date": "2019-07-02",
+      "strSeason": "2019-2020",
+      "strEquipment": "https://www.thesportsdb.com/images/media/team/equipment/flamengo-2019-2nd.png",
+      "strType": "2nd",
+      "strUsername": "fan01"
+    }
+  ]
+}

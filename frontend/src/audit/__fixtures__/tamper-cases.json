@@ -1,0 +1,428 @@
+{
+  "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAOFDphTBA+nFIIK0BSMMPCrbatQHsPyd6JasQ9r1sGso=\n-----END PUBLIC KEY-----\n",
+  "cases": [
+    {
+      "name": "intacta, com testemunha",
+      "entries": [
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 1,
+          "event_type": "lot_opened",
+          "payload_canonical": "{\"ends_at\":\"2026-10-28T20:10:00.000Z\",\"min_increment_cents\":1000,\"starting_price_cents\":10000,\"starts_at\":\"2026-10-28T20:00:00.000Z\",\"title\":\"Camisa Flamengo 2019\"}",
+          "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+          "hash": "c566c7bbe45d6b9e38a92764386cfb5284835b445906a10144d1d7b758b41c7d",
+          "signature": "jqrrUZqETlMXDW1BQ3OXr53zDtF9VhsOH+FWFIEZ81XC4YJPvXW73gksocQuZregLFSqrW6cUE68HEsIC73JDg=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 2,
+          "event_type": "bid_placed",
+          "payload_canonical": "{\"amount_cents\":10000,\"at\":\"2026-10-28T20:01:00.000Z\",\"bid_id\":1,\"bidder\":\"a1b2c3d4e5f60718\"}",
+          "prev_hash": "c566c7bbe45d6b9e38a92764386cfb5284835b445906a10144d1d7b758b41c7d",
+          "hash": "468482b5db8c5d91067d16425ec09b4c5e7613ac075ce7982570d0a40f194e3d",
+          "signature": "wiRnUulcdYai0o1tDUNJfd9YYcznKRoPy0M/zDmbazKTZ+2NQbcszuWKDZ74+8of08muOFS9BzYr38IVb3B/Dg=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 3,
+          "event_type": "bid_placed",
+          "payload_canonical": "{\"amount_cents\":11000,\"at\":\"2026-10-28T20:02:00.000Z\",\"bid_id\":2,\"bidder\":\"0f1e2d3c4b5a6978\"}",
+          "prev_hash": "468482b5db8c5d91067d16425ec09b4c5e7613ac075ce7982570d0a40f194e3d",
+          "hash": "568b2d3bab1666a8a165683ed175529ce1de28be47b5c31c476c3b7e6e9f47ba",
+          "signature": "2D6/OzASCNCDsRdlnUi5ULFHG+mdFoDFcF1k2NQ78zVdlPcycunY+fxuBKlVVZYIEMtclmXG0RXRpk/6hHhGCA=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 4,
+          "event_type": "lot_extended",
+          "payload_canonical": "{\"at\":\"2026-10-28T20:02:00.000Z\",\"bid_id\":2,\"ends_at_after\":\"2026-10-28T20:12:00.000000Z\",\"ends_at_before\":\"2026-10-28T20:10:00.000000Z\"}",
+          "prev_hash": "568b2d3bab1666a8a165683ed175529ce1de28be47b5c31c476c3b7e6e9f47ba",
+          "hash": "8516374485f48b43aadd153fd12c7f0ebf42f4e38b374c0d01a67d4b51b41cfe",
+          "signature": "/SC+Pi+HbifX0n6jrYjc/sCdPy/Mj5E5tPWKMSnqMo8mDxe2Cp+gFFGHQoEOVqEtnXzs7P57isqADROk5snoBw=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 5,
+          "event_type": "lot_settled",
+          "payload_canonical": "{\"at\":\"2026-10-28T20:12:00.000Z\",\"bid_count\":2,\"final_price_cents\":11000,\"winner\":\"0f1e2d3c4b5a6978\"}",
+          "prev_hash": "8516374485f48b43aadd153fd12c7f0ebf42f4e38b374c0d01a67d4b51b41cfe",
+          "hash": "9197bbd82e8a9d4ea0ee93af83aef606fbe6a2fcbb189f3ed27719665f7a73ef",
+          "signature": "55o/PKipHmQ1QR1C4WsnukZt4qt3PUYKRcebiQLoQA556cYRM90KEjT2iJilhxiOxTxxIM7mRlP2jVM3QNL4DA=="
+        }
+      ],
+      "witness": {
+        "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+        "seq": 5,
+        "head_hash": "9197bbd82e8a9d4ea0ee93af83aef606fbe6a2fcbb189f3ed27719665f7a73ef",
+        "at": "2026-10-28T20:10:00.000Z",
+        "sig": "soF4HVPXjLv+ATyvXMOJmCCcW8PAYTAhZUuM0O5+lqki4kcFOyVJkvl8NN421SGu26+ZrYGIt7P62Pkf1M9IDQ=="
+      },
+      "expected": {
+        "verdict": "intact",
+        "failure_kind": null,
+        "broken_at_seq": null,
+        "witness_ok": true
+      }
+    },
+    {
+      "name": "intacta, sem testemunha",
+      "entries": [
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 1,
+          "event_type": "lot_opened",
+          "payload_canonical": "{\"ends_at\":\"2026-10-28T20:10:00.000Z\",\"min_increment_cents\":1000,\"starting_price_cents\":10000,\"starts_at\":\"2026-10-28T20:00:00.000Z\",\"title\":\"Camisa Flamengo 2019\"}",
+          "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+          "hash": "c566c7bbe45d6b9e38a92764386cfb5284835b445906a10144d1d7b758b41c7d",
+          "signature": "jqrrUZqETlMXDW1BQ3OXr53zDtF9VhsOH+FWFIEZ81XC4YJPvXW73gksocQuZregLFSqrW6cUE68HEsIC73JDg=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 2,
+          "event_type": "bid_placed",
+          "payload_canonical": "{\"amount_cents\":10000,\"at\":\"2026-10-28T20:01:00.000Z\",\"bid_id\":1,\"bidder\":\"a1b2c3d4e5f60718\"}",
+          "prev_hash": "c566c7bbe45d6b9e38a92764386cfb5284835b445906a10144d1d7b758b41c7d",
+          "hash": "468482b5db8c5d91067d16425ec09b4c5e7613ac075ce7982570d0a40f194e3d",
+          "signature": "wiRnUulcdYai0o1tDUNJfd9YYcznKRoPy0M/zDmbazKTZ+2NQbcszuWKDZ74+8of08muOFS9BzYr38IVb3B/Dg=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 3,
+          "event_type": "bid_placed",
+          "payload_canonical": "{\"amount_cents\":11000,\"at\":\"2026-10-28T20:02:00.000Z\",\"bid_id\":2,\"bidder\":\"0f1e2d3c4b5a6978\"}",
+          "prev_hash": "468482b5db8c5d91067d16425ec09b4c5e7613ac075ce7982570d0a40f194e3d",
+          "hash": "568b2d3bab1666a8a165683ed175529ce1de28be47b5c31c476c3b7e6e9f47ba",
+          "signature": "2D6/OzASCNCDsRdlnUi5ULFHG+mdFoDFcF1k2NQ78zVdlPcycunY+fxuBKlVVZYIEMtclmXG0RXRpk/6hHhGCA=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 4,
+          "event_type": "lot_extended",
+          "payload_canonical": "{\"at\":\"2026-10-28T20:02:00.000Z\",\"bid_id\":2,\"ends_at_after\":\"2026-10-28T20:12:00.000000Z\",\"ends_at_before\":\"2026-10-28T20:10:00.000000Z\"}",
+          "prev_hash": "568b2d3bab1666a8a165683ed175529ce1de28be47b5c31c476c3b7e6e9f47ba",
+          "hash": "8516374485f48b43aadd153fd12c7f0ebf42f4e38b374c0d01a67d4b51b41cfe",
+          "signature": "/SC+Pi+HbifX0n6jrYjc/sCdPy/Mj5E5tPWKMSnqMo8mDxe2Cp+gFFGHQoEOVqEtnXzs7P57isqADROk5snoBw=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 5,
+          "event_type": "lot_settled",
+          "payload_canonical": "{\"at\":\"2026-10-28T20:12:00.000Z\",\"bid_count\":2,\"final_price_cents\":11000,\"winner\":\"0f1e2d3c4b5a6978\"}",
+          "prev_hash": "8516374485f48b43aadd153fd12c7f0ebf42f4e38b374c0d01a67d4b51b41cfe",
+          "hash": "9197bbd82e8a9d4ea0ee93af83aef606fbe6a2fcbb189f3ed27719665f7a73ef",
+          "signature": "55o/PKipHmQ1QR1C4WsnukZt4qt3PUYKRcebiQLoQA556cYRM90KEjT2iJilhxiOxTxxIM7mRlP2jVM3QNL4DA=="
+        }
+      ],
+      "witness": null,
+      "expected": {
+        "verdict": "intact",
+        "failure_kind": null,
+        "broken_at_seq": null,
+        "witness_ok": null
+      }
+    },
+    {
+      "name": "valor de um lance alterado",
+      "entries": [
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 1,
+          "event_type": "lot_opened",
+          "payload_canonical": "{\"ends_at\":\"2026-10-28T20:10:00.000Z\",\"min_increment_cents\":1000,\"starting_price_cents\":10000,\"starts_at\":\"2026-10-28T20:00:00.000Z\",\"title\":\"Camisa Flamengo 2019\"}",
+          "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+          "hash": "c566c7bbe45d6b9e38a92764386cfb5284835b445906a10144d1d7b758b41c7d",
+          "signature": "jqrrUZqETlMXDW1BQ3OXr53zDtF9VhsOH+FWFIEZ81XC4YJPvXW73gksocQuZregLFSqrW6cUE68HEsIC73JDg=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 2,
+          "event_type": "bid_placed",
+          "payload_canonical": "{\"amount_cents\":10000,\"at\":\"2026-10-28T20:01:00.000Z\",\"bid_id\":1,\"bidder\":\"a1b2c3d4e5f60718\"}",
+          "prev_hash": "c566c7bbe45d6b9e38a92764386cfb5284835b445906a10144d1d7b758b41c7d",
+          "hash": "468482b5db8c5d91067d16425ec09b4c5e7613ac075ce7982570d0a40f194e3d",
+          "signature": "wiRnUulcdYai0o1tDUNJfd9YYcznKRoPy0M/zDmbazKTZ+2NQbcszuWKDZ74+8of08muOFS9BzYr38IVb3B/Dg=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 3,
+          "event_type": "bid_placed",
+          "payload_canonical": "{\"amount_cents\":1100,\"at\":\"2026-10-28T20:02:00.000Z\",\"bid_id\":2,\"bidder\":\"0f1e2d3c4b5a6978\"}",
+          "prev_hash": "468482b5db8c5d91067d16425ec09b4c5e7613ac075ce7982570d0a40f194e3d",
+          "hash": "568b2d3bab1666a8a165683ed175529ce1de28be47b5c31c476c3b7e6e9f47ba",
+          "signature": "2D6/OzASCNCDsRdlnUi5ULFHG+mdFoDFcF1k2NQ78zVdlPcycunY+fxuBKlVVZYIEMtclmXG0RXRpk/6hHhGCA=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 4,
+          "event_type": "lot_extended",
+          "payload_canonical": "{\"at\":\"2026-10-28T20:02:00.000Z\",\"bid_id\":2,\"ends_at_after\":\"2026-10-28T20:12:00.000000Z\",\"ends_at_before\":\"2026-10-28T20:10:00.000000Z\"}",
+          "prev_hash": "568b2d3bab1666a8a165683ed175529ce1de28be47b5c31c476c3b7e6e9f47ba",
+          "hash": "8516374485f48b43aadd153fd12c7f0ebf42f4e38b374c0d01a67d4b51b41cfe",
+          "signature": "/SC+Pi+HbifX0n6jrYjc/sCdPy/Mj5E5tPWKMSnqMo8mDxe2Cp+gFFGHQoEOVqEtnXzs7P57isqADROk5snoBw=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 5,
+          "event_type": "lot_settled",
+          "payload_canonical": "{\"at\":\"2026-10-28T20:12:00.000Z\",\"bid_count\":2,\"final_price_cents\":11000,\"winner\":\"0f1e2d3c4b5a6978\"}",
+          "prev_hash": "8516374485f48b43aadd153fd12c7f0ebf42f4e38b374c0d01a67d4b51b41cfe",
+          "hash": "9197bbd82e8a9d4ea0ee93af83aef606fbe6a2fcbb189f3ed27719665f7a73ef",
+          "signature": "55o/PKipHmQ1QR1C4WsnukZt4qt3PUYKRcebiQLoQA556cYRM90KEjT2iJilhxiOxTxxIM7mRlP2jVM3QNL4DA=="
+        }
+      ],
+      "witness": {
+        "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+        "seq": 5,
+        "head_hash": "9197bbd82e8a9d4ea0ee93af83aef606fbe6a2fcbb189f3ed27719665f7a73ef",
+        "at": "2026-10-28T20:10:00.000Z",
+        "sig": "soF4HVPXjLv+ATyvXMOJmCCcW8PAYTAhZUuM0O5+lqki4kcFOyVJkvl8NN421SGu26+ZrYGIt7P62Pkf1M9IDQ=="
+      },
+      "expected": {
+        "verdict": "tampered",
+        "failure_kind": "altered",
+        "broken_at_seq": 3
+      }
+    },
+    {
+      "name": "lance do meio removido",
+      "entries": [
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 1,
+          "event_type": "lot_opened",
+          "payload_canonical": "{\"ends_at\":\"2026-10-28T20:10:00.000Z\",\"min_increment_cents\":1000,\"starting_price_cents\":10000,\"starts_at\":\"2026-10-28T20:00:00.000Z\",\"title\":\"Camisa Flamengo 2019\"}",
+          "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+          "hash": "c566c7bbe45d6b9e38a92764386cfb5284835b445906a10144d1d7b758b41c7d",
+          "signature": "jqrrUZqETlMXDW1BQ3OXr53zDtF9VhsOH+FWFIEZ81XC4YJPvXW73gksocQuZregLFSqrW6cUE68HEsIC73JDg=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 3,
+          "event_type": "bid_placed",
+          "payload_canonical": "{\"amount_cents\":11000,\"at\":\"2026-10-28T20:02:00.000Z\",\"bid_id\":2,\"bidder\":\"0f1e2d3c4b5a6978\"}",
+          "prev_hash": "468482b5db8c5d91067d16425ec09b4c5e7613ac075ce7982570d0a40f194e3d",
+          "hash": "568b2d3bab1666a8a165683ed175529ce1de28be47b5c31c476c3b7e6e9f47ba",
+          "signature": "2D6/OzASCNCDsRdlnUi5ULFHG+mdFoDFcF1k2NQ78zVdlPcycunY+fxuBKlVVZYIEMtclmXG0RXRpk/6hHhGCA=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 4,
+          "event_type": "lot_extended",
+          "payload_canonical": "{\"at\":\"2026-10-28T20:02:00.000Z\",\"bid_id\":2,\"ends_at_after\":\"2026-10-28T20:12:00.000000Z\",\"ends_at_before\":\"2026-10-28T20:10:00.000000Z\"}",
+          "prev_hash": "568b2d3bab1666a8a165683ed175529ce1de28be47b5c31c476c3b7e6e9f47ba",
+          "hash": "8516374485f48b43aadd153fd12c7f0ebf42f4e38b374c0d01a67d4b51b41cfe",
+          "signature": "/SC+Pi+HbifX0n6jrYjc/sCdPy/Mj5E5tPWKMSnqMo8mDxe2Cp+gFFGHQoEOVqEtnXzs7P57isqADROk5snoBw=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 5,
+          "event_type": "lot_settled",
+          "payload_canonical": "{\"at\":\"2026-10-28T20:12:00.000Z\",\"bid_count\":2,\"final_price_cents\":11000,\"winner\":\"0f1e2d3c4b5a6978\"}",
+          "prev_hash": "8516374485f48b43aadd153fd12c7f0ebf42f4e38b374c0d01a67d4b51b41cfe",
+          "hash": "9197bbd82e8a9d4ea0ee93af83aef606fbe6a2fcbb189f3ed27719665f7a73ef",
+          "signature": "55o/PKipHmQ1QR1C4WsnukZt4qt3PUYKRcebiQLoQA556cYRM90KEjT2iJilhxiOxTxxIM7mRlP2jVM3QNL4DA=="
+        }
+      ],
+      "witness": {
+        "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+        "seq": 5,
+        "head_hash": "9197bbd82e8a9d4ea0ee93af83aef606fbe6a2fcbb189f3ed27719665f7a73ef",
+        "at": "2026-10-28T20:10:00.000Z",
+        "sig": "soF4HVPXjLv+ATyvXMOJmCCcW8PAYTAhZUuM0O5+lqki4kcFOyVJkvl8NN421SGu26+ZrYGIt7P62Pkf1M9IDQ=="
+      },
+      "expected": {
+        "verdict": "tampered",
+        "failure_kind": "missing",
+        "broken_at_seq": 3
+      }
+    },
+    {
+      "name": "último evento removido (a testemunha viu 5)",
+      "entries": [
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 1,
+          "event_type": "lot_opened",
+          "payload_canonical": "{\"ends_at\":\"2026-10-28T20:10:00.000Z\",\"min_increment_cents\":1000,\"starting_price_cents\":10000,\"starts_at\":\"2026-10-28T20:00:00.000Z\",\"title\":\"Camisa Flamengo 2019\"}",
+          "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+          "hash": "c566c7bbe45d6b9e38a92764386cfb5284835b445906a10144d1d7b758b41c7d",
+          "signature": "jqrrUZqETlMXDW1BQ3OXr53zDtF9VhsOH+FWFIEZ81XC4YJPvXW73gksocQuZregLFSqrW6cUE68HEsIC73JDg=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 2,
+          "event_type": "bid_placed",
+          "payload_canonical": "{\"amount_cents\":10000,\"at\":\"2026-10-28T20:01:00.000Z\",\"bid_id\":1,\"bidder\":\"a1b2c3d4e5f60718\"}",
+          "prev_hash": "c566c7bbe45d6b9e38a92764386cfb5284835b445906a10144d1d7b758b41c7d",
+          "hash": "468482b5db8c5d91067d16425ec09b4c5e7613ac075ce7982570d0a40f194e3d",
+          "signature": "wiRnUulcdYai0o1tDUNJfd9YYcznKRoPy0M/zDmbazKTZ+2NQbcszuWKDZ74+8of08muOFS9BzYr38IVb3B/Dg=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 3,
+          "event_type": "bid_placed",
+          "payload_canonical": "{\"amount_cents\":11000,\"at\":\"2026-10-28T20:02:00.000Z\",\"bid_id\":2,\"bidder\":\"0f1e2d3c4b5a6978\"}",
+          "prev_hash": "468482b5db8c5d91067d16425ec09b4c5e7613ac075ce7982570d0a40f194e3d",
+          "hash": "568b2d3bab1666a8a165683ed175529ce1de28be47b5c31c476c3b7e6e9f47ba",
+          "signature": "2D6/OzASCNCDsRdlnUi5ULFHG+mdFoDFcF1k2NQ78zVdlPcycunY+fxuBKlVVZYIEMtclmXG0RXRpk/6hHhGCA=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 4,
+          "event_type": "lot_extended",
+          "payload_canonical": "{\"at\":\"2026-10-28T20:02:00.000Z\",\"bid_id\":2,\"ends_at_after\":\"2026-10-28T20:12:00.000000Z\",\"ends_at_before\":\"2026-10-28T20:10:00.000000Z\"}",
+          "prev_hash": "568b2d3bab1666a8a165683ed175529ce1de28be47b5c31c476c3b7e6e9f47ba",
+          "hash": "8516374485f48b43aadd153fd12c7f0ebf42f4e38b374c0d01a67d4b51b41cfe",
+          "signature": "/SC+Pi+HbifX0n6jrYjc/sCdPy/Mj5E5tPWKMSnqMo8mDxe2Cp+gFFGHQoEOVqEtnXzs7P57isqADROk5snoBw=="
+        }
+      ],
+      "witness": {
+        "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+        "seq": 5,
+        "head_hash": "9197bbd82e8a9d4ea0ee93af83aef606fbe6a2fcbb189f3ed27719665f7a73ef",
+        "at": "2026-10-28T20:10:00.000Z",
+        "sig": "soF4HVPXjLv+ATyvXMOJmCCcW8PAYTAhZUuM0O5+lqki4kcFOyVJkvl8NN421SGu26+ZrYGIt7P62Pkf1M9IDQ=="
+      },
+      "expected": {
+        "verdict": "tampered",
+        "failure_kind": "truncated",
+        "broken_at_seq": 5,
+        "witness_ok": false
+      }
+    },
+    {
+      "name": "lance forjado inserido no fim",
+      "entries": [
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 1,
+          "event_type": "lot_opened",
+          "payload_canonical": "{\"ends_at\":\"2026-10-28T20:10:00.000Z\",\"min_increment_cents\":1000,\"starting_price_cents\":10000,\"starts_at\":\"2026-10-28T20:00:00.000Z\",\"title\":\"Camisa Flamengo 2019\"}",
+          "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+          "hash": "c566c7bbe45d6b9e38a92764386cfb5284835b445906a10144d1d7b758b41c7d",
+          "signature": "jqrrUZqETlMXDW1BQ3OXr53zDtF9VhsOH+FWFIEZ81XC4YJPvXW73gksocQuZregLFSqrW6cUE68HEsIC73JDg=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 2,
+          "event_type": "bid_placed",
+          "payload_canonical": "{\"amount_cents\":10000,\"at\":\"2026-10-28T20:01:00.000Z\",\"bid_id\":1,\"bidder\":\"a1b2c3d4e5f60718\"}",
+          "prev_hash": "c566c7bbe45d6b9e38a92764386cfb5284835b445906a10144d1d7b758b41c7d",
+          "hash": "468482b5db8c5d91067d16425ec09b4c5e7613ac075ce7982570d0a40f194e3d",
+          "signature": "wiRnUulcdYai0o1tDUNJfd9YYcznKRoPy0M/zDmbazKTZ+2NQbcszuWKDZ74+8of08muOFS9BzYr38IVb3B/Dg=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 3,
+          "event_type": "bid_placed",
+          "payload_canonical": "{\"amount_cents\":11000,\"at\":\"2026-10-28T20:02:00.000Z\",\"bid_id\":2,\"bidder\":\"0f1e2d3c4b5a6978\"}",
+          "prev_hash": "468482b5db8c5d91067d16425ec09b4c5e7613ac075ce7982570d0a40f194e3d",
+          "hash": "568b2d3bab1666a8a165683ed175529ce1de28be47b5c31c476c3b7e6e9f47ba",
+          "signature": "2D6/OzASCNCDsRdlnUi5ULFHG+mdFoDFcF1k2NQ78zVdlPcycunY+fxuBKlVVZYIEMtclmXG0RXRpk/6hHhGCA=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 4,
+          "event_type": "lot_extended",
+          "payload_canonical": "{\"at\":\"2026-10-28T20:02:00.000Z\",\"bid_id\":2,\"ends_at_after\":\"2026-10-28T20:12:00.000000Z\",\"ends_at_before\":\"2026-10-28T20:10:00.000000Z\"}",
+          "prev_hash": "568b2d3bab1666a8a165683ed175529ce1de28be47b5c31c476c3b7e6e9f47ba",
+          "hash": "8516374485f48b43aadd153fd12c7f0ebf42f4e38b374c0d01a67d4b51b41cfe",
+          "signature": "/SC+Pi+HbifX0n6jrYjc/sCdPy/Mj5E5tPWKMSnqMo8mDxe2Cp+gFFGHQoEOVqEtnXzs7P57isqADROk5snoBw=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 5,
+          "event_type": "lot_settled",
+          "payload_canonical": "{\"at\":\"2026-10-28T20:12:00.000Z\",\"bid_count\":2,\"final_price_cents\":11000,\"winner\":\"0f1e2d3c4b5a6978\"}",
+          "prev_hash": "8516374485f48b43aadd153fd12c7f0ebf42f4e38b374c0d01a67d4b51b41cfe",
+          "hash": "9197bbd82e8a9d4ea0ee93af83aef606fbe6a2fcbb189f3ed27719665f7a73ef",
+          "signature": "55o/PKipHmQ1QR1C4WsnukZt4qt3PUYKRcebiQLoQA556cYRM90KEjT2iJilhxiOxTxxIM7mRlP2jVM3QNL4DA=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 6,
+          "event_type": "bid_placed",
+          "payload_canonical": "{\"amount_cents\":99999,\"at\":\"2026-10-28T20:13:00.000Z\",\"bid_id\":99,\"bidder\":\"ffffffffffffffff\"}",
+          "prev_hash": "9197bbd82e8a9d4ea0ee93af83aef606fbe6a2fcbb189f3ed27719665f7a73ef",
+          "hash": "c44385e9f81a870b122710c2e7c320bab6eee9c939e3928a7fe160975ebfec08",
+          "signature": "BtxKrg3F3Cr+mg9l4UA9zTEbWWwUoCOfq0lJ/fS9AERBNzPEqbSJ+ZCsswbTJu8H7OmB4198WLGmnbBuxr+VAA=="
+        }
+      ],
+      "witness": {
+        "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+        "seq": 5,
+        "head_hash": "9197bbd82e8a9d4ea0ee93af83aef606fbe6a2fcbb189f3ed27719665f7a73ef",
+        "at": "2026-10-28T20:10:00.000Z",
+        "sig": "soF4HVPXjLv+ATyvXMOJmCCcW8PAYTAhZUuM0O5+lqki4kcFOyVJkvl8NN421SGu26+ZrYGIt7P62Pkf1M9IDQ=="
+      },
+      "expected": {
+        "verdict": "tampered",
+        "failure_kind": "inserted",
+        "broken_at_seq": 6
+      }
+    },
+    {
+      "name": "testemunha com assinatura falsa é ignorada",
+      "entries": [
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 1,
+          "event_type": "lot_opened",
+          "payload_canonical": "{\"ends_at\":\"2026-10-28T20:10:00.000Z\",\"min_increment_cents\":1000,\"starting_price_cents\":10000,\"starts_at\":\"2026-10-28T20:00:00.000Z\",\"title\":\"Camisa Flamengo 2019\"}",
+          "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+          "hash": "c566c7bbe45d6b9e38a92764386cfb5284835b445906a10144d1d7b758b41c7d",
+          "signature": "jqrrUZqETlMXDW1BQ3OXr53zDtF9VhsOH+FWFIEZ81XC4YJPvXW73gksocQuZregLFSqrW6cUE68HEsIC73JDg=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 2,
+          "event_type": "bid_placed",
+          "payload_canonical": "{\"amount_cents\":10000,\"at\":\"2026-10-28T20:01:00.000Z\",\"bid_id\":1,\"bidder\":\"a1b2c3d4e5f60718\"}",
+          "prev_hash": "c566c7bbe45d6b9e38a92764386cfb5284835b445906a10144d1d7b758b41c7d",
+          "hash": "468482b5db8c5d91067d16425ec09b4c5e7613ac075ce7982570d0a40f194e3d",
+          "signature": "wiRnUulcdYai0o1tDUNJfd9YYcznKRoPy0M/zDmbazKTZ+2NQbcszuWKDZ74+8of08muOFS9BzYr38IVb3B/Dg=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 3,
+          "event_type": "bid_placed",
+          "payload_canonical": "{\"amount_cents\":11000,\"at\":\"2026-10-28T20:02:00.000Z\",\"bid_id\":2,\"bidder\":\"0f1e2d3c4b5a6978\"}",
+          "prev_hash": "468482b5db8c5d91067d16425ec09b4c5e7613ac075ce7982570d0a40f194e3d",
+          "hash": "568b2d3bab1666a8a165683ed175529ce1de28be47b5c31c476c3b7e6e9f47ba",
+          "signature": "2D6/OzASCNCDsRdlnUi5ULFHG+mdFoDFcF1k2NQ78zVdlPcycunY+fxuBKlVVZYIEMtclmXG0RXRpk/6hHhGCA=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 4,
+          "event_type": "lot_extended",
+          "payload_canonical": "{\"at\":\"2026-10-28T20:02:00.000Z\",\"bid_id\":2,\"ends_at_after\":\"2026-10-28T20:12:00.000000Z\",\"ends_at_before\":\"2026-10-28T20:10:00.000000Z\"}",
+          "prev_hash": "568b2d3bab1666a8a165683ed175529ce1de28be47b5c31c476c3b7e6e9f47ba",
+          "hash": "8516374485f48b43aadd153fd12c7f0ebf42f4e38b374c0d01a67d4b51b41cfe",
+          "signature": "/SC+Pi+HbifX0n6jrYjc/sCdPy/Mj5E5tPWKMSnqMo8mDxe2Cp+gFFGHQoEOVqEtnXzs7P57isqADROk5snoBw=="
+        },
+        {
+          "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+          "seq": 5,
+          "event_type": "lot_settled",
+          "payload_canonical": "{\"at\":\"2026-10-28T20:12:00.000Z\",\"bid_count\":2,\"final_price_cents\":11000,\"winner\":\"0f1e2d3c4b5a6978\"}",
+          "prev_hash": "8516374485f48b43aadd153fd12c7f0ebf42f4e38b374c0d01a67d4b51b41cfe",
+          "hash": "9197bbd82e8a9d4ea0ee93af83aef606fbe6a2fcbb189f3ed27719665f7a73ef",
+          "signature": "55o/PKipHmQ1QR1C4WsnukZt4qt3PUYKRcebiQLoQA556cYRM90KEjT2iJilhxiOxTxxIM7mRlP2jVM3QNL4DA=="
+        }
+      ],
+      "witness": {
+        "lot_id": "5b1c7e2a-9d4f-4c3e-8a6b-1f2e3d4c5b6a",
+        "seq": 5,
+        "head_hash": "9197bbd82e8a9d4ea0ee93af83aef606fbe6a2fcbb189f3ed27719665f7a73ef",
+        "at": "2026-10-28T20:10:00.000Z",
+        "sig": "LTCLVzBcazNkDswl7JqctjgsnZEFwyse6E6+VFXhQi4Up0vFt8+9P0ALF1qMeMAge48VfkxNforX6mrRc9+LDQ=="
+      },
+      "expected": {
+        "verdict": "intact",
+        "failure_kind": null,
+        "broken_at_seq": null,
+        "witness_ok": null
+      }
+    }
+  ]
+}
