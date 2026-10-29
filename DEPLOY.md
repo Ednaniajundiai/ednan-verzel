@@ -46,7 +46,8 @@ auditoria invalida a verificação de lotes antigos.
 3. **Compose Path:** `./docker-compose.prod.yml`. **Compose Type:** Docker Compose.
 4. Aba **Environment**: cole as variáveis do `.env.example` com os valores reais
    (`DATABASE_URL`, `JWT_SECRET`, `PSEUDONYM_SECRET`, `RECEIPT_SECRET`, `ADMIN_USERNAME`,
-   `ADMIN_PASSWORD` e, se gerou, `AUDIT_PRIVATE_KEY_PEM`).
+   `ADMIN_PASSWORD`, `SEED_ON_START=true` para as contas de avaliação e, se gerou,
+   `AUDIT_PRIVATE_KEY_PEM`).
 5. Aba **Domains** → adicione o domínio:
    - Service Name: `leilao-web`
    - Port: `80`
@@ -71,11 +72,10 @@ curl -s https://SEU_DOMINIO/api/lots | head -c 200      # {"server_now":...,"lot
 curl -s https://SEU_DOMINIO/api/audit/public-key        # chave pública da auditoria
 ```
 
-Abra `https://SEU_DOMINIO` e entre com o `ADMIN_USERNAME` e a `ADMIN_PASSWORD`. O banco nasce
-**sem contas e sem lotes de demonstração**: a API só migra o schema e cria a conta do admin,
-que é leiloeira. O login é por usuário (não por e-mail) e não diferencia maiúsculas. Os
-licitantes se cadastram em `/cadastro`; o admin cria os lotes no painel, buscando as camisas na
-TheSportsDB (sem camisas locais de reserva).
+Abra `https://SEU_DOMINIO` e entre com o `ADMIN_USERNAME` e a `ADMIN_PASSWORD`, que é leiloeiro.
+Com `SEED_ON_START=true`, a subida também cria as contas e os lotes de demonstração do README
+(idempotente: nas subidas seguintes só garante as contas). O login é por usuário (não por
+e-mail) e não diferencia maiúsculas.
 
 ## 5. Se algo falhar
 

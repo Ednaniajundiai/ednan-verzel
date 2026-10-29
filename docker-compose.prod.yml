@@ -22,9 +22,10 @@ services:
       WITNESS_FILE: /app/storage/audit-witness.jsonl
       THESPORTSDB_BASE_URL: ${THESPORTSDB_BASE_URL:-https://www.thesportsdb.com/api/v1/json/123}
       CATALOG_TTL_HOURS: ${CATALOG_TTL_HOURS:-24}
-      # Sem seed: nenhuma conta nem lote de demonstração. Só a conta do admin (leiloeiro), com o
-      # usuário e a senha definidos no ambiente, criada na subida se não existir (a senha não é trocada depois).
-      SEED_ON_START: "false"
+      # `true` cria as contas e os lotes de demonstração do README (idempotente: nas subidas
+      # seguintes só garante as contas). A conta do admin (leiloeiro) é criada na subida se não
+      # existir, com o usuário e a senha do ambiente (a senha não é trocada depois).
+      SEED_ON_START: ${SEED_ON_START:-false}
       ADMIN_USERNAME: ${ADMIN_USERNAME:?defina ADMIN_USERNAME (3 a 32 caracteres, só letras, números, _ e -)}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:?defina ADMIN_PASSWORD (mín. 8 caracteres)}
     volumes:
@@ -32,8 +33,12 @@ services:
     expose:
       - "3000"
     networks:
-      - default
-      - dokploy-network
+      # O nginx fala com a API por este apelido, que só existe na rede própria da stack. Pelo nome
+      # `leilao-api` na dokploy-network, ele pode cair na API de outra stack com o mesmo compose.
+      default:
+        aliases:
+          - ednan-verzel-api
+      dokploy-network:
 
   # SPA React em nginx; repassa /api, /socket.io e /images para a API (nginx.prod.conf).
   # No Dokploy, aponte o domínio para este serviço, porta 80.
