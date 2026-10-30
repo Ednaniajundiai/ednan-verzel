@@ -1,20 +1,26 @@
 import { Link } from 'react-router-dom';
 import { formatBRL } from '../../lib/money';
+import { clubOf } from '../lots/clubs';
 import type { PublicLot } from '../lots/types';
 import { Countdown } from '../sala/Countdown';
+import { ClubCrest } from './ClubCrest';
 
-/** Cartão com a informação própria da fase (FR-021). */
+/** Cartão com a informação própria da fase (FR-021) e o escudo do clube (spec 006). */
 export function LotCard({ lot }: { lot: PublicLot }) {
+  const club = clubOf(lot.item.attributes.team);
   return (
-    <article className="card lot-card stack">
+    <article className={`card lot-card stack phase-${lot.phase}`}>
       {lot.item.image_url ? (
         <img className="thumb" src={lot.item.image_url} alt="" loading="lazy" />
       ) : (
         <span className="placeholder-img">Sem imagem</span>
       )}
-      <h3>
-        <Link to={`/lotes/${lot.id}`}>{lot.item.title}</Link>
-      </h3>
+      <div className="lot-title">
+        {club && <ClubCrest club={club} size={32} label={`Escudo do ${club.name}`} />}
+        <h3>
+          <Link to={`/lotes/${lot.id}`}>{lot.item.title}</Link>
+        </h3>
+      </div>
       {lot.phase === 'live' && (
         <>
           <p>

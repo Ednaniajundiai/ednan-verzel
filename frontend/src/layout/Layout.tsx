@@ -12,7 +12,16 @@ export function Layout({ children }: { children: ReactNode }) {
     <div className="app">
       <header className="topbar">
         <Link to="/" className="brand">
-          Casa de Leilões
+          {/* Flâmula geométrica nas cores da Verzel (inspiração, não o logo oficial). */}
+          <svg className="brand-mark" width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
+            <path d="M3 4 L27 15 L3 26 Z" fill="var(--brand-violet)" />
+            <path d="M3 4 L17 15 L3 15 Z" fill="var(--brand-cyan)" />
+            <path d="M3 15 L17 15 L3 26 Z" fill="var(--brand-lime)" />
+          </svg>
+          <span className="brand-text">
+            Casa de Leilões
+            <small>camisas do time Verzel</small>
+          </span>
         </Link>
         <nav className="nav">
           {user?.role === 'auctioneer' && (

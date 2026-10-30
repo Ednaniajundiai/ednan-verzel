@@ -2,27 +2,84 @@
  * Cores só em variáveis (D-17 da 002): o tema escuro da 004 redefine estes
  * valores sem tocar nos componentes.
  */
+/* Fontes versionadas em public/fonts (OFL), sem pedir nada a servidor externo:
+   Barlow no texto e Saira Condensed em títulos e números, com cara de placar. */
+@font-face {
+  font-family: 'Barlow';
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/barlow-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Barlow';
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/barlow-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Barlow';
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/barlow-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Barlow';
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/barlow-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Saira Condensed';
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/saira-condensed-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Saira Condensed';
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/saira-condensed-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Saira Condensed';
+  font-weight: 800;
+  font-display: swap;
+  src: url('/fonts/saira-condensed-800.woff2') format('woff2');
+}
+
 :root {
-  --bg: #f6f7f9;
+  --font-body: 'Barlow', 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Saira Condensed', 'Arial Narrow', 'Barlow', sans-serif;
+  /* Paleta inspirada na Verzel (spec 006): violeta, ciano e limão sobre azul-marinho.
+     Ciano e limão só em detalhe decorativo: não têm contraste para texto em fundo claro. */
+  --brand-violet: #6a4fe8;
+  --brand-cyan: #1fc6e0;
+  --brand-lime: #b6d92e;
+  --brand-navy: #141a33;
+  --hero-bg: #141a33;
+  --hero-bg-2: #2a1f6e;
+  --hero-text: #ffffff;
+  --hero-muted: #c9cdf0;
+  --bg: #f4f5fb;
   --surface: #ffffff;
-  --surface-alt: #eef1f5;
-  --text: #1b1f24;
-  --muted: #5b6470;
-  --border: #d6dbe1;
-  --primary: #1f5fbf;
+  --surface-alt: #eceefa;
+  --text: #141a33;
+  --muted: #545b78;
+  --border: #d9dcef;
+  --primary: #5a3fd6;
   --primary-text: #ffffff;
-  --primary-soft: #e3ecfa;
+  --primary-soft: #ece8fd;
   --danger: #b42318;
   --danger-soft: #fdecea;
   --success: #146c2e;
   --success-soft: #e6f4ea;
   --warning: #8a5a00;
   --warning-soft: #fff4d6;
-  --focus: #1f5fbf;
-  --radius: 8px;
+  --focus: #5a3fd6;
+  --radius: 12px;
   --shadow: 0 1px 2px rgb(0 0 0 / 0.06), 0 2px 8px rgb(0 0 0 / 0.04);
   color-scheme: light;
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-body);
   line-height: 1.5;
   color: var(--text);
   background: var(--bg);
@@ -30,22 +87,24 @@
 
 /* Tema escuro (spec 004, FR-028): só os valores mudam. */
 [data-theme='dark'] {
-  --bg: #0f1419;
-  --surface: #171d24;
-  --surface-alt: #222a33;
-  --text: #e6e9ed;
-  --muted: #a3adb8;
-  --border: #33404d;
-  --primary: #79b0ff;
-  --primary-text: #0b1220;
-  --primary-soft: #1c2b44;
+  --hero-bg: #1a1f45;
+  --hero-bg-2: #34238a;
+  --bg: #0d1024;
+  --surface: #151a33;
+  --surface-alt: #1f2547;
+  --text: #e8eaf6;
+  --muted: #a6acc9;
+  --border: #2f3660;
+  --primary: #a99bff;
+  --primary-text: #0d1024;
+  --primary-soft: #2a2457;
   --danger: #ff8f85;
   --danger-soft: #3a1d1d;
   --success: #6fdc8c;
   --success-soft: #16301f;
   --warning: #ffd27a;
   --warning-soft: #3a2e12;
-  --focus: #79b0ff;
+  --focus: #a99bff;
   --shadow: none;
   color-scheme: dark;
 }
@@ -70,6 +129,29 @@ h3 {
   line-height: 1.25;
 }
 
+h1,
+h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+h2 {
+  text-transform: uppercase;
+}
+
+h3 {
+  font-weight: 600;
+}
+
+/* Números de placar: preço, contagem e totais. */
+.price strong,
+.stat strong,
+.countdown {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+}
+
 :focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 2px;
@@ -92,10 +174,31 @@ h3 {
 }
 
 .brand {
-  font-weight: 700;
-  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
   color: var(--text);
   text-decoration: none;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brand-text small {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .nav,
@@ -678,6 +781,612 @@ th {
 .theme-toggle {
   border-radius: 999px;
   padding: 4px 12px;
+}
+
+/* ---------------------------------------------------------------- visual Verzel e escudos (spec 006) */
+
+.topbar {
+  position: relative;
+}
+
+/* Faixa nas três cores da marca sob o cabeçalho. */
+.topbar::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand-violet) 0 40%, var(--brand-cyan) 40% 75%, var(--brand-lime) 75%);
+}
+
+.page-intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 16px;
+}
+
+.page-intro h1 {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  text-transform: uppercase;
+}
+
+.page-intro p {
+  margin: 0;
+}
+
+.live-dot {
+  display: inline-block;
+  flex: none;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ff4d4f;
+  animation: live-pulse 1.6s ease-out infinite;
+}
+
+/* Faixa ao vivo (Superbid) */
+
+.ticker {
+  display: flex;
+  align-items: stretch;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--hero-bg);
+  color: var(--hero-text);
+}
+
+.ticker-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  padding: 0 16px;
+  background: #d6283a;
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ticker-label .live-dot {
+  background: #ffffff;
+}
+
+.ticker-viewport {
+  flex: 1;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 24px, #000 calc(100% - 24px), transparent);
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker-roll 40s linear infinite;
+}
+
+.ticker:hover .ticker-track,
+.ticker:focus-within .ticker-track {
+  animation-play-state: paused;
+}
+
+.ticker-copy {
+  display: flex;
+}
+
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  color: var(--hero-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  border-right: 1px solid rgb(255 255 255 / 0.12);
+}
+
+.ticker-item:hover .ticker-title {
+  color: var(--hero-text);
+  text-decoration: underline;
+}
+
+.ticker-item strong,
+.ticker-item .countdown {
+  color: var(--hero-text);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+}
+
+.ticker-item .countdown {
+  color: var(--brand-lime);
+}
+
+@keyframes ticker-roll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Lote em destaque como placar */
+
+.scoreboard {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+  padding: 28px;
+  border-radius: calc(var(--radius) + 4px);
+  background: linear-gradient(125deg, var(--hero-bg) 0%, var(--hero-bg) 50%, var(--hero-bg-2) 100%);
+  color: var(--hero-text);
+}
+
+.pitch {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.1;
+  stroke: #ffffff;
+  stroke-width: 1.5;
+  fill: #ffffff;
+}
+
+.score-shapes {
+  position: absolute;
+  right: -10px;
+  top: 0;
+  bottom: 0;
+  width: 30%;
+  z-index: -1;
+  opacity: 0.55;
+}
+
+.tri {
+  position: absolute;
+  display: block;
+}
+
+.tri-violet {
+  right: 22%;
+  top: 14%;
+  width: 46%;
+  height: 72%;
+  background: var(--brand-violet);
+  clip-path: polygon(0 100%, 55% 0, 100% 100%);
+}
+
+.tri-cyan {
+  right: 8%;
+  top: 6%;
+  width: 34%;
+  height: 58%;
+  background: var(--brand-cyan);
+  clip-path: polygon(0 0, 100% 0, 40% 100%);
+}
+
+.tri-lime {
+  right: 0;
+  bottom: 8%;
+  width: 40%;
+  height: 52%;
+  background: var(--brand-lime);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.score-media img,
+.score-media .placeholder-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border-radius: var(--radius);
+  background: rgb(255 255 255 / 0.94);
+}
+
+.score-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.score-kicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  color: var(--brand-lime);
+}
+
+.score-team {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.score-team p {
+  margin: 0;
+}
+
+.score-club {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.score-season {
+  color: var(--hero-muted);
+  font-weight: 600;
+}
+
+.scoreboard .score-title {
+  margin: 0;
+  color: var(--hero-muted);
+  font-size: 1.05rem;
+}
+
+.score-panel {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: rgb(0 0 0 / 0.35);
+  border: 1px solid rgb(255 255 255 / 0.14);
+}
+
+.score-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 16px;
+  min-width: 0;
+}
+
+.score-cell + .score-cell {
+  border-left: 1px solid rgb(255 255 255 / 0.14);
+}
+
+.score-cell span {
+  color: var(--hero-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.score-cell strong {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 2.1rem);
+  font-weight: 700;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.scoreboard.phase-live .score-cell:last-child strong {
+  color: var(--brand-lime);
+}
+
+.score-cta {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: var(--brand-lime);
+  color: var(--brand-navy);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.score-cta:hover {
+  background: #c9ea45;
+}
+
+/* Fileiras temáticas (Catawiki) */
+
+.lot-row-section > h2 {
+  margin: 8px 0 12px;
+}
+
+.lot-row {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 220px;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 4px 2px 12px;
+  scroll-snap-type: x mandatory;
+}
+
+.lot-row > * {
+  scroll-snap-align: start;
+}
+
+/* Faixa de escudos */
+
+.club-strip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 16px 8px;
+  box-shadow: var(--shadow);
+}
+
+.club-strip-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-bottom: 12px;
+}
+
+.club-strip-title {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.club-strip .tabs {
+  border-bottom: 0;
+}
+
+.club-row {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+}
+
+.club-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+}
+
+.club-chip {
+  width: 92px;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 6px;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  background: var(--surface-alt);
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  transition: transform 0.12s ease, border-color 0.12s ease, background 0.12s ease;
+}
+
+.club-chip span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.club-chip:hover {
+  transform: translateY(-2px);
+  border-color: var(--border);
+}
+
+.club-chip[aria-pressed='true'] {
+  background: var(--primary-soft);
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-soft);
+}
+
+.club-chip {
+  position: relative;
+}
+
+.club-chip .club-count {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  min-width: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: var(--primary-text);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.club-chip.is-empty .crest,
+.club-chip.is-empty span {
+  opacity: 0.45;
+}
+
+.club-chip.is-empty .crest {
+  filter: grayscale(1);
+}
+
+.club-all {
+  color: var(--primary);
+}
+
+.club-all span {
+  white-space: normal;
+}
+
+.crest {
+  display: block;
+  object-fit: contain;
+  flex: none;
+}
+
+/* Seções e cartões */
+
+.lot-section > h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0 0;
+}
+
+.lot-section > h2::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, var(--border), transparent);
+}
+
+.sec-live > h2::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--danger);
+  box-shadow: 0 0 0 0 var(--danger);
+  animation: live-pulse 1.6s ease-out infinite;
+}
+
+@keyframes live-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgb(220 38 38 / 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgb(220 38 38 / 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sec-live > h2::before,
+  .live-dot {
+    animation: none;
+  }
+  /* Sem giro: a faixa vira rolagem manual e a cópia some. */
+  .ticker-track {
+    animation: none;
+  }
+  .ticker-viewport {
+    overflow-x: auto;
+  }
+  .ticker-copy {
+    display: none;
+  }
+  .club-chip,
+  .lot-card {
+    transition: none;
+  }
+}
+
+.lot-card {
+  position: relative;
+  overflow: hidden;
+  padding: 14px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.lot-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: var(--border);
+}
+
+.lot-card.phase-live::before {
+  background: linear-gradient(90deg, var(--brand-violet), var(--brand-cyan));
+}
+
+.lot-card.phase-scheduled::before {
+  background: linear-gradient(90deg, var(--brand-cyan), var(--brand-lime));
+}
+
+.lot-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgb(20 26 51 / 0.12);
+}
+
+.lot-card .thumb {
+  background:
+    linear-gradient(transparent 49.5%, rgb(106 79 232 / 0.08) 49.5% 50.5%, transparent 50.5%),
+    var(--surface-alt);
+}
+
+.lot-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lot-card h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.lot-card h3 a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* O link cobre o cartão inteiro, sem trocar o nome acessível. */
+.lot-card h3 a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.empty-state {
+  padding: 24px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  align-items: flex-start;
+}
+
+.empty-state p {
+  margin: 0;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .scoreboard {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 18px;
+  }
+  .score-media img,
+  .score-media .placeholder-img {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+  .score-cell {
+    padding: 10px;
+  }
+  .page-intro {
+    flex-direction: column;
+  }
+  .brand-text small {
+    display: none;
+  }
 }
 
 @media (max-width: 640px) {
