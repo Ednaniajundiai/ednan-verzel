@@ -1,18 +1,23 @@
+import { normalizeText } from '../../lib/text';
+import { clubOf } from './clubs';
 import type { Phase } from './phase';
+
+export { normalizeText };
 
 export type PhaseFilter = 'all' | Exclude<Phase, 'cancelled'>;
 
-/** Minúsculas, sem acentos e com espaços simples (D-11 da 003). */
-export function normalizeText(text: string): string {
-  return text
-    .normalize('NFD')
-    .replace(/\p{Diacritic}/gu, '')
-    .toLowerCase()
-    .replace(/\s+/g, ' ')
-    .trim();
+interface Filterable {
+  phase: Phase;
+  item: { title: string; attributes?: Record<string, string> };
 }
 
-export function filterLots<T extends { phase: Phase; item: { title: string } }>(lots: T[], query: string, phase: PhaseFilter): T[] {
+/** Texto no título, estado e clube (código da spec 006; `null` = todos), somados. */
+export function filterLots<T extends Filterable>(lots: T[], query: string, phase: PhaseFilter, club: string | null = null): T[] {
   const q = normalizeText(query);
-  return lots.filter((l) => (phase === 'all' || l.phase === phase) && (!q || normalizeText(l.item.title).includes(q)));
+  return lots.filter(
+    (l) =>
+      (phase === 'all' || l.phase === phase) &&
+      (!q || normalizeText(l.item.title).includes(q)) &&
+      (!club || clubOf(l.item.attributes?.team)?.code === club),
+  );
 }
